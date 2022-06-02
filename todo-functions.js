@@ -42,10 +42,9 @@ const generateTodoDOM = function (todo) {
     const toDoElement = document.createElement('div')
     const checkbox = document.createElement('input')
     checkbox.setAttribute('type', 'checkbox')
-    checkbox.checked = todo.complete
+    checkbox.checked = todo.completed
     checkbox.addEventListener('change', function(e) {
-        console.log(e.target.checked)
-        todo.complete = e.target.checked
+        todo.completed = e.target.checked
         saveTodos(todos)
         renderTodos(todos, filters)
 })
