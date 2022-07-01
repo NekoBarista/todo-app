@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    background: #2B292E;
+    background-image: url('sparkles.jpg');
   color: #fafafa;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
@@ -34,7 +34,7 @@ a {
 
 
 .header {
-  background: #6F439C;
+  background: rgb(176,	208,	219, .9);
   color:white;
   padding: 1.6rem 0;
 }
@@ -45,16 +45,15 @@ a {
 }
 
 .header-subtitle {
-  /* color: #777; */
+
   font-size: 1.6rem;
   font-weight: 300;
 }
 
 
 .actions {
-    background-color: #353239;
-    /* border-bottom: 1px solid #dedfe0; */
-    /* color: #333333; */
+    background-color:rgb(53, 50, 57, .7);
+
     padding: 1rem
 }
 
