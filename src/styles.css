@@ -92,7 +92,7 @@ a {
 .button {
     background: rgb(176,	208,	219, .9);
     border: none;
-    border-bottom: 2px solid #9FB6CD	;
+    border-bottom: 2px solid #9BC0C9	;
     color: white;
     font-size: 1.4rem;
     font-weight: 300;
@@ -116,7 +116,7 @@ a {
 .button-text {
     background: none;
     border: none;
-    color: #aaa;
+    color: white;
 }
 
 .button-text:hover {
@@ -153,8 +153,8 @@ a {
     text-decoration: none;
     color: #fafafa;
     cursor: pointer;
-    background: #353239;
-    border: 1px solid #423e47;
+    background:#AFD5DF;
+    border: 1px solid #AFD5DF;
     margin: 1.6rem 0;
     padding: 1rem 1.6rem;
     display: block;
@@ -176,7 +176,7 @@ a {
 }
 
 .list-item:hover {
-    background: #3d3941;
+    background: #9BC0C9;
 }
 
 .list-item-title {
