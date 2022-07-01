@@ -1,6 +1,5 @@
 'use strict'
 
-// Fetch existing todos from localStorage
 const getSavedTodos = () => {
     const todosJSON = localStorage.getItem('todos')
 
@@ -10,15 +9,14 @@ const getSavedTodos = () => {
     
 }
 
-// Save todos to localStorage
 const saveTodos =  (todos) => {
     localStorage.setItem('todos', JSON.stringify(todos))
 }
 
 
 
-// Render application todos based on filters
 const renderTodos = (todos, filters) => {
+    
     const filteredTodos = todos.filter((todo) => {
         const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
         const hideCompletedMatch = !filters.hideCompleted || !todo.completed
@@ -33,14 +31,25 @@ const renderTodos = (todos, filters) => {
     document.querySelector('#todos').innerHTML = ''
     document.querySelector('#todos').appendChild(generateSummaryDOM(incompleteTodos))
 
+
+    if (filteredTodos.length>0) {
+
     filteredTodos.forEach((todo) => {
         document.querySelector('#todos').appendChild(generateTodoDOM(todo))
-    })
+    }) }
+
+    else {
+
+        const messageElement = document.createElement('p')
+        messageElement.classList.add('empty-message')
+        messageElement.textContent = "There are no tasks to show"
+        document.querySelector("#todos").appendChild(messageElement)
+    }
 }
 
-// Get the DOM elements for an individual note
 const generateTodoDOM =  (todo) => {
-    const toDoElement = document.createElement('div')
+    const toDoElement = document.createElement('label')
+    const containerElement = document.createElement('div')
     const checkbox = document.createElement('input')
     checkbox.setAttribute('type', 'checkbox')
     checkbox.checked = todo.completed
@@ -49,10 +58,13 @@ const generateTodoDOM =  (todo) => {
         saveTodos(todos)
         renderTodos(todos, filters)
 })
-    toDoElement.appendChild(checkbox)
+
+toDoElement.appendChild(containerElement)
+    containerElement.appendChild(checkbox)
     const p = document.createElement('span')
     const button = document.createElement('button')
-    button.textContent = 'x'
+    button.textContent = 'Remove'
+    button.classList.add("button-text")
     button.addEventListener('click', () => {
         removeToDo(todo.id)
         saveTodos(todos)
@@ -60,17 +72,21 @@ const generateTodoDOM =  (todo) => {
     })
     
     p.textContent = todo.text
-    
-   
-    toDoElement.appendChild(p)
+    containerElement.appendChild(p)
     toDoElement.appendChild(button)
+    
+    toDoElement.classList.add("list-item")
+    containerElement.classList.add("list-item-container")  
+
     return toDoElement
+
 }
 
 // Get the DOM elements for list summary
 const generateSummaryDOM = (incompleteTodos) => {
     const summary = document.createElement('h2')
-    summary.textContent = `You have ${incompleteTodos.length} todos left`
+    const plural = incompleteTodos.length === 1 ? "" : "s"
+    summary.textContent = `You have  ${incompleteTodos.length} task${plural} left to do`
     return summary
 }
 
