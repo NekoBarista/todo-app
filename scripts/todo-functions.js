@@ -72,8 +72,9 @@ toDoElement.appendChild(containerElement)
     })
     
     p.textContent = todo.text
-    containerElement.appendChild(p)
+
     toDoElement.appendChild(button)
+    containerElement.appendChild(p)
     
     toDoElement.classList.add("list-item")
     containerElement.classList.add("list-item-container")  
