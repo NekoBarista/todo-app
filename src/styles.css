@@ -200,4 +200,6 @@ a {
 
 .empty-message {
     margin: 3.2rem 0;
+    color:rgb(53, 50, 57);
+    font-weight: bold;
 }
